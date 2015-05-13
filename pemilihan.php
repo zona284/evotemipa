@@ -21,15 +21,22 @@ if(isset($data['nim'])){
 ?>
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="js/fileinput.min.js" type="text/javascript"></script>
+    <script src="js/bootstrap.min.js" type="text/javascript"></script>
 </head>
 <body>
+<div class="container">
+<h1>Silakan Memilih</h1>
 <form action="confirm.php" method="POST" onsubmit="return confirm('Apakah anda sudah yakin dengan pilihan anda?')">
     <p><input type="radio" name="pilih" id="pilih" value="1"> Nuno</p>
 	<p><input type="radio" name="pilih" id="pilih" value="2" > Gema</p>
 	<p><input type="radio" name="pilih" id="pilih" value="3" > Rakha</p>
     <input type="submit" class="btn btn-primary" value="Pilih">
 	</form>
+	</div>
 </body>
 </html>
 	<?php }

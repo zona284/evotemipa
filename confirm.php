@@ -18,7 +18,7 @@ if(isset($data['nim'])){
 		echo "<meta http-equiv=refresh content='0; url=logout.php'/>";
 	}
 	else{
-		if ($pilihan == null) { ?><script>alert("Anda belum memilih, silahkan pilih salah satu");document.location.href="pilih.php"</script> <?php }
+		if ($pilihan == null) { ?><script>alert("Anda belum memilih, silahkan pilih salah satu");document.location.href="pemilihan.php"</script> <?php }
 		//echo $pilihan;
 		else { echo "Suara Anda sedang dikirim ...";
 		

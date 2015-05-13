@@ -12,12 +12,18 @@ echo $_SESSION['login'];
 ?>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="js/fileinput.min.js" type="text/javascript"></script>
+    <script src="js/bootstrap.min.js" type="text/javascript"></script>
 </head>
 <body>
+<div class="container">
 <a href="logout.php?q=<?php echo $log?>">LOGOUT</a>
 <h1> Hello <?php $user->get_fullname($uid); ?></h1>
-<h2>Last Loged in at <?php $user->get_lastLogin($uid); ?></h2> 
-<a href="pemilihan.php">Vote</a>
+
+<a class="btn btn-default" href="pemilihan.php">Vote</a>
+</div>
 </body>
 </html>
