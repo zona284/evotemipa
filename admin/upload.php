@@ -1,4 +1,21 @@
 <?php
+session_start();
+$nama_wakil = $_POST['namawakil'];
+$nama_ketua = $_POST['namaketua'];
+$namapas = $nama_ketua . "-" . $nama_wakil;
+$profil = $_POST['profil'];
+
+include_once '../db_connect.php';
+include_once '../config.php';
+$db = new DB_Connect();
+$db->connect();
+
+$_SESSION['loginadm'] = "a";
+if(!ISSET($_SESSION['loginadm'])){
+			header("location:login.php");
+		}
+else{
+
 $target_dir = "upload/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
@@ -37,11 +54,17 @@ if ($uploadOk == 0) {
 } else {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
         //$output=[];
-		echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+		echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";      
+                
     } else {
 		$output = ['error'=>'Sorry, there was an error uploading your file.'];
     }
 }
 
 //echo json_encode($output);
+    $result1 = mysql_query("INSERT INTO calon(nama, gambar, profil) VALUES('$namapas', '$target_file',  '$profil')");
+        if($result1==TRUE){
+        echo "sukses";
+        }
+}
 ?> 
